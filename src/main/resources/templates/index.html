@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        tr,td{
+            border:2px solid black;
+        }
+
+        td{
+            padding: 5px 10px;
+            background-color: beige;
+        }
+        th{
+            background-color: black;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Home page</h1>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Texto</th>
+            <th>Accion</th>
+        </tr>
+        <h2 th:text="${name}"></h2>
+        <tr th:each = "t : ${todo}">
+            <td th:text="${t.idTodo}"></td>
+            <td th:text="${t.text}"></td>
+            <td> <a href="/add/">Update</a> <button>Delete</button></td>
+        </tr>
+    </table>
+</body>
+</html>

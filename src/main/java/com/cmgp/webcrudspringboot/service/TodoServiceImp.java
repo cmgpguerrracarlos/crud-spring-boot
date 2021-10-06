@@ -32,8 +32,7 @@ public class TodoServiceImp implements TodoService{
     }
 
     @Override
-    public int delete(int id) {
+    public void delete(int id) {
         todoRepository.deleteById(id);
-        return 0;
     }
 }

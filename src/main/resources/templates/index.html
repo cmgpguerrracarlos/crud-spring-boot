@@ -22,6 +22,7 @@
 </head>
 <body>
     <h1>Home page</h1>
+    <a th:href="${'/add'}">Agregar Todo</a>
     <table>
         <tr>
             <th>Id</th>
@@ -32,7 +33,7 @@
         <tr th:each = "t : ${todo}">
             <td th:text="${t.idTodo}"></td>
             <td th:text="${t.text}"></td>
-            <td> <a href="/add/">Update</a> <button>Delete</button></td>
+            <td> <a th:href="${'/edit/' + t.id}">Update</a> <a th:href="${'/delete/' + t.id}">Delete</a></td>
         </tr>
     </table>
 </body>

@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Todo</title>
+    <title>Edit Todo</title>
 </head>
 <body>
     <form th:action="@{/store}" method="POST" th:object="${todo}">
-        <input type="hidden" th:field="*{id}" name="idTodo" id="idTodo"/><br>
+        <label for="idTodo">Id</label>
+        <input type="number" th:field="*{id}" name="idTodo" id="idTodo"/><br>
         <label for="idTodo">Id Todo</label>
         <input type="number" th:field="*{idTodo}" name="idTodo" id="idTodo"/><br>
 

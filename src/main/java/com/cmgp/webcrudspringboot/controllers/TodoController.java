@@ -30,20 +30,27 @@ public class TodoController {
 
     @GetMapping("/add")
     public String addtodo(Model model) {
-        model.addAttribute("newtodo", new Todo());
+        model.addAttribute("todo", new Todo());
         return "addTodo";
     }
 
     @PostMapping("/store")
     public String storeTodo(Todo todo){
         todoService.addTodo(todo);
-        return "index";
+        return "redirect:/";
     }
 
-    @GetMapping("/edit/{id}")
+    @RequestMapping("/edit/{id}")
     public String editTodo(@PathVariable("id")int id,Model model){
-        // model.addAttribute("todo", todo);
-        return "editTodo";
+        Todo todo = todoService.findById(id);
+        model.addAttribute("todo", todo);
+        return "addTodo";
+    }
+
+    @RequestMapping("/delete/{id}")
+    public String deleteTodo(@PathVariable("id") int id){
+        todoService.delete(id);
+        return "redirect:/";
     }
 
 }
